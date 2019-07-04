@@ -1,0 +1,15 @@
+{% extends 'layout/kosongan.twig' %}
+
+{% block isi %}
+	{% include 'include/jumlah_koin.twig' %}
+    <div class="panel panel-default">
+    	<div class="list-group">
+    		{% for a in data %}
+    			<a href="{{ site_url() }}tantangan/{{ a.id }}" class="list-group-item">
+    				{{ a.judul }}
+    				<span class="badge">{{ a.koin }} koin</span>
+    			</a>    
+    		{% endfor %}
+    	</div>
+    </div>
+{% endblock %}

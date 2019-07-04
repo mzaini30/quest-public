@@ -1,0 +1,39 @@
+{% extends 'layout/kosongan.twig' %}
+
+{% block judul %}
+    {{ data.judul }} -
+{% endblock %}
+
+{% block isi %}
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            {{ data.judul }}
+            <div class="badge pull-right">{{ data.koin }} koin</div>
+        </div>
+        <div class="panel-body">
+            <a href="{{ site_url() }}tantangan/{{ data.id }}/selesai" class="btn btn-success">Selesai</a>
+            <a href="{{ site_url() }}tantangan/{{ data.id }}/edit" class="btn btn-warning">Edit</a>
+            <a href="#!" class="btn btn-danger apakah-hapus">Hapus</a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block skrip %}
+    <script src="{{ base_url() }}aset/vendor/jquery/jquery.min.js"></script>
+    <script src="{{ base_url() }}aset/vendor/swal/sweetalert2.js"></script>
+    <script>
+        $('.apakah-hapus').click(function(z){
+            z.preventDefault()
+            Swal.fire({
+                title: 'Hapus Kah?',
+                text: 'Quest: {{ data.judul }} ({{ data.koin }} koin)',
+                type: 'warning',
+                showCancelButton: true
+            }).then(function(x){
+                if (x.value) {
+                    location.href = '{{ site_url() }}tantangan/{{ data.id }}/hapus'
+                }
+            })
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{% block judul %}{% endblock %}Quest</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<link rel="stylesheet" type="text/css" href="{{ base_url() }}aset/vendor/bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="navbar navbar-default">
+		<div class="container">
+			<div class="navbar-header">
+				<a href="{{ site_url() }}" class="navbar-brand">Quest</a>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-9">
+				{% block isi %}{% endblock %}
+			</div>
+			<div class="col-sm-3">
+				<div class="panel panel-default">
+					<div class="panel-heading">Quest</div>
+					<div class="list-group">
+						<a href="{{ site_url() }}quest-baru" class="list-group-item">Buat Baru</a>
+						<a href="{{ site_url() }}quest-selesai" class="list-group-item">Quest Selesai</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% block skrip %}{% endblock %}
+</body>
+</html>

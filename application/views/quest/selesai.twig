@@ -1,0 +1,21 @@
+{% extends 'layout/kosongan.twig' %}
+
+{% block judul %}
+    Quest Selesai -
+{% endblock %}
+
+{% block isi %}
+    {% if jumlah_koin != null %}
+        {% include 'include/jumlah_koin.twig' %}
+        <div class="panel panel-default">
+        	<div class="list-group">
+        		{% for a in data %}
+        			<div class="list-group-item">
+        				{{ a.judul }}
+        				<span class="badge">{{ a.koin }} koin</span>
+        			</div>    
+        		{% endfor %}
+        	</div>
+        </div>
+    {% endif %}
+{% endblock %}
