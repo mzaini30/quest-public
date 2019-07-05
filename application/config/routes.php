@@ -56,6 +56,15 @@ $route['translate_uri_dashes'] = FALSE;
 $route['quest-baru'] = 'quest/baru';
 $route['quest-selesai'] = 'quest/quest_selesai';
 $route['tantangan/(:any)'] = 'quest/detail/$1';
+$route['tantangan/(:any)/edit'] = 'quest/edit/$1';
 $route['tantangan/(:any)/hapus'] = 'quest/hapus/$1';
 $route['tantangan/(:any)/selesai'] = 'quest/selesai/$1';
-$route['tantangan/(:any)/edit'] = 'quest/edit/$1';
+
+$route['ambil-koin/(:any)'] = 'koin/ambil/$1';
+$route['edit-hadiah'] = 'koin/edit';
+$route['edit-hadiah/(:any)'] = 'koin/edit_satuan/$1';
+$route['hapus-koin/(:any)'] = 'koin/hapus/$1';
+$route['koin-terpakai'] = 'koin/terpakai';
+$route['tambah-hadiah'] = 'koin/tambah';
+$route['tukar-koin'] = 'koin';
+$route['tukar-koin/(:any)'] = 'koin/detail/$1';

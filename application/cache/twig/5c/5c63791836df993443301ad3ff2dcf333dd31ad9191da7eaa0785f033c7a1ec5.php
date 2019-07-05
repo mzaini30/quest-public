@@ -63,12 +63,7 @@ class __TwigTemplate_a0e39494f2ae200be6a94a80153ff9e10acd644789f85dbd4b9e395d74b
         echo " koin</div>
         </div>
         <div class=\"panel-body\">
-            <a href=\"";
-        // line 14
-        echo twig_escape_filter($this->env, site_url(), "html", null, true);
-        echo "tantangan/";
-        echo twig_escape_filter($this->env, $this->getAttribute(($context["data"] ?? null), "id", []), "html", null, true);
-        echo "/selesai\" class=\"btn btn-success\">Selesai</a>
+            <a href=\"#!\" class=\"btn btn-success apakah-selesai\">Selesai</a>
             <a href=\"";
         // line 15
         echo twig_escape_filter($this->env, site_url(), "html", null, true);
@@ -93,12 +88,30 @@ class __TwigTemplate_a0e39494f2ae200be6a94a80153ff9e10acd644789f85dbd4b9e395d74b
         echo twig_escape_filter($this->env, base_url(), "html", null, true);
         echo "aset/vendor/swal/sweetalert2.js\"></script>
     <script>
+        \$('.apakah-selesai').click(function(z){
+            z.preventDefault()
+            Swal.fire({
+                title: 'Selesai?',
+                text: 'Beneran sudah selesai?',
+                type: 'warning',
+                showCancelButton: true
+            }).then(function(x){
+                if (x.value) {
+                    location.href = '";
+        // line 34
+        echo twig_escape_filter($this->env, site_url(), "html", null, true);
+        echo "tantangan/";
+        echo twig_escape_filter($this->env, $this->getAttribute(($context["data"] ?? null), "id", []), "html", null, true);
+        echo "/selesai'
+                }
+            })
+        });
         \$('.apakah-hapus').click(function(z){
             z.preventDefault()
             Swal.fire({
                 title: 'Hapus Kah?',
                 text: 'Quest: ";
-        // line 29
+        // line 42
         echo twig_escape_filter($this->env, $this->getAttribute(($context["data"] ?? null), "judul", []), "html", null, true);
         echo " (";
         echo twig_escape_filter($this->env, $this->getAttribute(($context["data"] ?? null), "koin", []), "html", null, true);
@@ -108,7 +121,7 @@ class __TwigTemplate_a0e39494f2ae200be6a94a80153ff9e10acd644789f85dbd4b9e395d74b
             }).then(function(x){
                 if (x.value) {
                     location.href = '";
-        // line 34
+        // line 47
         echo twig_escape_filter($this->env, site_url(), "html", null, true);
         echo "tantangan/";
         echo twig_escape_filter($this->env, $this->getAttribute(($context["data"] ?? null), "id", []), "html", null, true);
@@ -132,7 +145,7 @@ class __TwigTemplate_a0e39494f2ae200be6a94a80153ff9e10acd644789f85dbd4b9e395d74b
 
     public function getDebugInfo()
     {
-        return array (  112 => 34,  102 => 29,  93 => 23,  88 => 22,  85 => 21,  74 => 15,  68 => 14,  62 => 11,  58 => 10,  54 => 8,  51 => 7,  44 => 4,  41 => 3,  31 => 1,);
+        return array (  125 => 47,  115 => 42,  102 => 34,  88 => 23,  83 => 22,  80 => 21,  69 => 15,  62 => 11,  58 => 10,  54 => 8,  51 => 7,  44 => 4,  41 => 3,  31 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -158,7 +171,7 @@ class __TwigTemplate_a0e39494f2ae200be6a94a80153ff9e10acd644789f85dbd4b9e395d74b
             <div class=\"badge pull-right\">{{ data.koin }} koin</div>
         </div>
         <div class=\"panel-body\">
-            <a href=\"{{ site_url() }}tantangan/{{ data.id }}/selesai\" class=\"btn btn-success\">Selesai</a>
+            <a href=\"#!\" class=\"btn btn-success apakah-selesai\">Selesai</a>
             <a href=\"{{ site_url() }}tantangan/{{ data.id }}/edit\" class=\"btn btn-warning\">Edit</a>
             <a href=\"#!\" class=\"btn btn-danger apakah-hapus\">Hapus</a>
         </div>
@@ -169,6 +182,19 @@ class __TwigTemplate_a0e39494f2ae200be6a94a80153ff9e10acd644789f85dbd4b9e395d74b
     <script src=\"{{ base_url() }}aset/vendor/jquery/jquery.min.js\"></script>
     <script src=\"{{ base_url() }}aset/vendor/swal/sweetalert2.js\"></script>
     <script>
+        \$('.apakah-selesai').click(function(z){
+            z.preventDefault()
+            Swal.fire({
+                title: 'Selesai?',
+                text: 'Beneran sudah selesai?',
+                type: 'warning',
+                showCancelButton: true
+            }).then(function(x){
+                if (x.value) {
+                    location.href = '{{ site_url() }}tantangan/{{ data.id }}/selesai'
+                }
+            })
+        });
         \$('.apakah-hapus').click(function(z){
             z.preventDefault()
             Swal.fire({

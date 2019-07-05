@@ -14,7 +14,14 @@ class Quest extends CI_Controller {
 		foreach ($ambil_koin as $y) {
 			$koin += $y->koin;
 		}
-		$this->jumlah_koin = $koin;
+
+		$koin_terpakai = $this->db->get_where('koin', ['status' => 'terpakai'])->result();
+		$koin_pengurang = null;
+		foreach ($koin_terpakai as $x) {
+			$koin_pengurang += $x->koin;
+		}
+
+		$this->jumlah_koin = $koin - $koin_pengurang;
 	}
 
 	public function index(){
@@ -68,7 +75,7 @@ class Quest extends CI_Controller {
 		} else {
 			$data = (object) $this->input->post();
 			$this->db->update('quest', $data, compact('id'));
-			redirect(site_url() . 'tantangan/' . $id);
+			redirect(site_url());
 		}
 	}
 }

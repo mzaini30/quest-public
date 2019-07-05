@@ -42,37 +42,41 @@ class __TwigTemplate_63ae3a3eeb68a2642973f9ee97756da9eb34e5f0e10be3b567fc74c0fba
         echo "\t";
         $this->loadTemplate("include/jumlah_koin.twig", "quest/beranda.twig", 4)->display($context);
         // line 5
-        echo "    <div class=\"panel panel-default\">
-    \t<div class=\"list-group\">
-    \t\t";
-        // line 7
-        $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(($context["data"] ?? null));
-        foreach ($context['_seq'] as $context["_key"] => $context["a"]) {
+        echo "    ";
+        if ((($context["data"] ?? null) != null)) {
+            // line 6
+            echo "        <div class=\"panel panel-default\">
+        \t<div class=\"list-group\">
+        \t\t";
             // line 8
-            echo "    \t\t\t<a href=\"";
-            echo twig_escape_filter($this->env, site_url(), "html", null, true);
-            echo "tantangan/";
-            echo twig_escape_filter($this->env, $this->getAttribute($context["a"], "id", []), "html", null, true);
-            echo "\" class=\"list-group-item\">
-    \t\t\t\t";
-            // line 9
-            echo twig_escape_filter($this->env, $this->getAttribute($context["a"], "judul", []), "html", null, true);
-            echo "
-    \t\t\t\t<span class=\"badge\">";
-            // line 10
-            echo twig_escape_filter($this->env, $this->getAttribute($context["a"], "koin", []), "html", null, true);
-            echo " koin</span>
-    \t\t\t</a>    
-    \t\t";
+            $context['_parent'] = $context;
+            $context['_seq'] = twig_ensure_traversable(($context["data"] ?? null));
+            foreach ($context['_seq'] as $context["_key"] => $context["a"]) {
+                // line 9
+                echo "        \t\t\t<a href=\"";
+                echo twig_escape_filter($this->env, site_url(), "html", null, true);
+                echo "tantangan/";
+                echo twig_escape_filter($this->env, $this->getAttribute($context["a"], "id", []), "html", null, true);
+                echo "\" class=\"list-group-item\">
+        \t\t\t\t";
+                // line 10
+                echo twig_escape_filter($this->env, $this->getAttribute($context["a"], "judul", []), "html", null, true);
+                echo "
+        \t\t\t\t<span class=\"badge\">";
+                // line 11
+                echo twig_escape_filter($this->env, $this->getAttribute($context["a"], "koin", []), "html", null, true);
+                echo " koin</span>
+        \t\t\t</a>    
+        \t\t";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['a'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 14
+            echo "        \t</div>
+        </div>
+    ";
         }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['a'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 13
-        echo "    \t</div>
-    </div>
-";
     }
 
     public function getTemplateName()
@@ -87,7 +91,7 @@ class __TwigTemplate_63ae3a3eeb68a2642973f9ee97756da9eb34e5f0e10be3b567fc74c0fba
 
     public function getDebugInfo()
     {
-        return array (  73 => 13,  64 => 10,  60 => 9,  53 => 8,  49 => 7,  45 => 5,  42 => 4,  39 => 3,  29 => 1,);
+        return array (  76 => 14,  67 => 11,  63 => 10,  56 => 9,  52 => 8,  48 => 6,  45 => 5,  42 => 4,  39 => 3,  29 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -104,16 +108,18 @@ class __TwigTemplate_63ae3a3eeb68a2642973f9ee97756da9eb34e5f0e10be3b567fc74c0fba
 
 {% block isi %}
 \t{% include 'include/jumlah_koin.twig' %}
-    <div class=\"panel panel-default\">
-    \t<div class=\"list-group\">
-    \t\t{% for a in data %}
-    \t\t\t<a href=\"{{ site_url() }}tantangan/{{ a.id }}\" class=\"list-group-item\">
-    \t\t\t\t{{ a.judul }}
-    \t\t\t\t<span class=\"badge\">{{ a.koin }} koin</span>
-    \t\t\t</a>    
-    \t\t{% endfor %}
-    \t</div>
-    </div>
+    {% if data != null %}
+        <div class=\"panel panel-default\">
+        \t<div class=\"list-group\">
+        \t\t{% for a in data %}
+        \t\t\t<a href=\"{{ site_url() }}tantangan/{{ a.id }}\" class=\"list-group-item\">
+        \t\t\t\t{{ a.judul }}
+        \t\t\t\t<span class=\"badge\">{{ a.koin }} koin</span>
+        \t\t\t</a>    
+        \t\t{% endfor %}
+        \t</div>
+        </div>
+    {% endif %}
 {% endblock %}", "quest/beranda.twig", "/mnt/C48455A884559E2C/web/quest/application/views/quest/beranda.twig");
     }
 }

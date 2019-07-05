@@ -1,3 +1,8 @@
+<!--
+
+	Website ini dibuat oleh Zen - 081545143654
+
+-->
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,13 +25,7 @@
 				{% block isi %}{% endblock %}
 			</div>
 			<div class="col-sm-3">
-				<div class="panel panel-default">
-					<div class="panel-heading">Quest</div>
-					<div class="list-group">
-						<a href="{{ site_url() }}quest-baru" class="list-group-item">Buat Baru</a>
-						<a href="{{ site_url() }}quest-selesai" class="list-group-item">Quest Selesai</a>
-					</div>
-				</div>
+				{% include 'include/sidebar.twig' %}
 			</div>
 		</div>
 	</div>

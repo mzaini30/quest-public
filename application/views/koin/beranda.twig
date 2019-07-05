@@ -1,0 +1,49 @@
+{% extends 'layout/kosongan.twig' %}
+
+{% block judul %}
+    Tukar Koin -
+{% endblock %}
+
+{% block isi %}
+	{% include 'include/jumlah_koin.twig' %}
+    {% if data != null %}
+        <div class="panel panel-default">
+            <div class="list-group olah-data">
+                {% for h in data %}
+                    <a href="#!" class="list-group-item {% if h.koin <= jumlah_koin %}pilih-{{ h.id }}{% else %}disabled{% endif %}">
+                        {{ h.judul }} 
+                        <span class="badge">{{ h.koin }} koin</span>
+                        {% if h.koin > jumlah_koin %}
+                            <span class="badge">terkunci</span>
+                        {% endif %}
+                    </a>    
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block skrip %}
+    <script src="{{ base_url() }}aset/vendor/jquery/jquery.min.js"></script>
+    <script src="{{ base_url() }}aset/vendor/swal/sweetalert2.js"></script>
+    <script type="text/javascript">
+        $('.olah-data a').click(function(x){
+            x.preventDefault()
+        });
+        {% for x in data %}
+            $('.pilih-{{ x.id }}').click(function(x){
+                x.preventDefault()
+                Swal.fire({
+                    title: 'Ambil?',
+                    text: 'Beneran mau diambil?',
+                    type: 'warning',
+                    showCancelButton: true
+                }).then(function(x){
+                    if (x.value) {
+                        location.href = '{{ site_url() }}ambil-koin/{{ x.id }}'
+                    }
+                })
+            });
+        {% endfor %}
+    </script>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'layout/kosongan.twig' %}
+
+{% block judul %}
+	{% if judul %}
+		{{ judul }}
+	{% else %}
+		Tambah Hadiah -    
+	{% endif %}
+{% endblock %}
+
+{% block isi %}
+	<form method="post">
+		<div class="form-group">
+			<label for="">Judul Hadiah</label>
+			<input type="text" class="form-control" required="" name="judul" value="{{ data.judul }}">
+		</div>
+		<div class="form-group">
+			<label for="">Jumlah Koin</label>
+			<input type="number" class="form-control" required="" name="koin" value="{{ data.koin }}">
+		</div>
+		<div class="form-group">
+			<input type="submit" class="btn btn-success" value="Oke">
+		</div>
+	</form>
+{% endblock %}

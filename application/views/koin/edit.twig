@@ -1,0 +1,44 @@
+{% extends 'layout/kosongan.twig' %}
+
+{% block judul %}
+    Edit Hadiah -
+{% endblock %}
+
+{% block isi %}
+    {% if data != null %}
+        {% for x in data %}
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    {{ x.judul }}
+                    <div class="badge pull-right">{{ x.koin }} koin</div>
+                </div>
+                <div class="panel-body">
+                    <a href="{{ site_url() }}edit-hadiah/{{ x.id }}" class="btn btn-warning">Edit</a>
+                    <a href="#!" class="btn btn-danger hapus-{{ x.id }}">Hapus</a>
+                </div>
+            </div>    
+        {% endfor %}
+    {% endif %}
+{% endblock %}
+
+{% block skrip %}
+    <script src="{{ base_url() }}aset/vendor/jquery/jquery.min.js"></script>
+    <script src="{{ base_url() }}aset/vendor/swal/sweetalert2.js"></script>
+    <script>
+        {% for x in data %}
+            $('.hapus-{{ x.id }}').click(function(x){
+                x.preventDefault()
+                Swal.fire({
+                    title: 'Hapus?',
+                    text: 'Beneran mau dihapus?',
+                    type: 'warning',
+                    showCancelButton: true
+                }).then(function(x){
+                    if (x.value) {
+                        location.href = '{{ site_url() }}hapus-koin/{{ x.id }}'
+                    }
+                })
+            });
+        {% endfor %}
+    </script>
+{% endblock %}

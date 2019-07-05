@@ -11,7 +11,7 @@
             <div class="badge pull-right">{{ data.koin }} koin</div>
         </div>
         <div class="panel-body">
-            <a href="{{ site_url() }}tantangan/{{ data.id }}/selesai" class="btn btn-success">Selesai</a>
+            <a href="#!" class="btn btn-success apakah-selesai">Selesai</a>
             <a href="{{ site_url() }}tantangan/{{ data.id }}/edit" class="btn btn-warning">Edit</a>
             <a href="#!" class="btn btn-danger apakah-hapus">Hapus</a>
         </div>
@@ -22,6 +22,19 @@
     <script src="{{ base_url() }}aset/vendor/jquery/jquery.min.js"></script>
     <script src="{{ base_url() }}aset/vendor/swal/sweetalert2.js"></script>
     <script>
+        $('.apakah-selesai').click(function(z){
+            z.preventDefault()
+            Swal.fire({
+                title: 'Selesai?',
+                text: 'Beneran sudah selesai?',
+                type: 'warning',
+                showCancelButton: true
+            }).then(function(x){
+                if (x.value) {
+                    location.href = '{{ site_url() }}tantangan/{{ data.id }}/selesai'
+                }
+            })
+        });
         $('.apakah-hapus').click(function(z){
             z.preventDefault()
             Swal.fire({
